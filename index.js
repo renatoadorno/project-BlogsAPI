@@ -1,13 +1,14 @@
 const express = require('express');
-const userRoute = require('./routes/userRoute');
-const loginRoute = require('./routes/loginRoute');
+const { route } = require('./routes');
+const error = require('./middlewares/error');
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/user', userRoute);
-app.use('/login', loginRoute);
+app.use('/user', route.user);
+app.use('/login', route.login);
+app.use(error);
 
 app.listen(3000, () => console.log('ouvindo porta 3000'));
 
