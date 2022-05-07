@@ -8,6 +8,7 @@ app.use(express.json());
 
 app.use('/user', route.user);
 app.use('/login', route.login);
+app.use('/categories', route.category);
 app.use(error);
 
 app.listen(3000, () => console.log('ouvindo porta 3000'));
