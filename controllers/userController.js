@@ -26,9 +26,27 @@ const findAll = async (_req, res, next) => {
   }
 };
 
+const findById = async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    const user = await userService.findById(id);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User does not exist' });
+    }
+
+    return res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+    next({ statusCode: 500, message: ERROR });
+  }
+};
+
 const userController = {
   create,
   findAll,
+  findById,
 };
 
 module.exports = {

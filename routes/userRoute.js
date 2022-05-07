@@ -15,4 +15,7 @@ router.use(auth);
 // Retorna todos os usuarios
 router.get('/', userController.findAll);
 
+// Retorna um unico usuario
+router.get('/:id', userController.findById);
+
 module.exports = router;
