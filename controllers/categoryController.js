@@ -15,8 +15,19 @@ const create = async (req, res, next) => {
   }
 };
 
+const findAll = async (_req, res, next) => {
+  try {
+    const categories = await categoryService.findAll();
+    return res.status(200).json(categories);
+  } catch (err) {
+    console.log(err);
+    next({ statusCode: 500, message: ERROR });
+  }
+};
+
 const categoryController = {
   create,
+  findAll,
 };
 
 module.exports = { categoryController };

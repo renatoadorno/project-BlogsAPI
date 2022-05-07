@@ -12,4 +12,7 @@ router.use(auth);
 // Criar categoria
 router.post('/', createdCategoryValidation, categoryController.create);
 
+// Mostra todas as categorias
+router.get('/', categoryController.findAll);
+
 module.exports = router;
