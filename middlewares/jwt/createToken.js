@@ -16,11 +16,3 @@ const createToken = (id) => {
 module.exports = {
   createToken,
 };
-
-// const createToken = (id) => {
-//   const token = jwt.sign({ data: id }, secret, {
-//     expiresIn: jwtConfig.expiresIn, // mudar para jwtConfig
-//     algorithm: jwtConfig.algorithm,
-//   });
-//   return token;
-// };
