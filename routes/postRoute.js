@@ -13,5 +13,6 @@ router.use(auth);
 router.post('/', postValidation, postController.create);
 
 // Mostra todos os posts
+router.get('/', postController.findAll);
 
 module.exports = router;

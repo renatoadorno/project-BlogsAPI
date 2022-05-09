@@ -16,8 +16,19 @@ const create = async (req, res, next) => {
   }
 };
 
+const findAll = async (req, res, next) => {
+  try {
+    const posts = await postService.findAll();
+    res.status(200).json(posts);
+  } catch (err) {
+    console.log(err);
+    next({ statusCode: 500, message: ERROR });
+  }
+};
+
 const postController = {
   create,
+  findAll,
 };
 
 module.exports = { postController };

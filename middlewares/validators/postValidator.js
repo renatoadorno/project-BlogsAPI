@@ -2,14 +2,14 @@ const Joi = require('joi');
 const { Op } = require('sequelize');
 const { Category } = require('../../models');
 
-const createPostSchema = Joi.object({
+const validateBody = Joi.object({
   title: Joi.string().required(),
   content: Joi.string().required(),
   categoryIds: Joi.array().items(Joi.number()).required(),
 });
 
 const createdPostValidation = (req, res, next) => {
-  const { error } = createPostSchema.validate(req.body);
+  const { error } = validateBody.validate(req.body);
 
   if (error) {
     return res.status(400).json({
