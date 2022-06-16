@@ -54,7 +54,13 @@ Para criar o db com as tabelas e os dados:
 
   ```bash
   npx sequelize db:create
+  ```
+
+  ```bash
   npx sequelize db:migrate
+  ```
+
+  ```bash
   npx sequelize db:seed:all
   ```
 
